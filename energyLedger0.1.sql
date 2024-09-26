@@ -1,4 +1,4 @@
--- Copyright (c) 2023 Open Risk (https://www.openriskmanagement.com)
+-- Copyright (c) 2023 - 2024 Open Risk (https://www.openriskmanagement.com)
 -- PostgreSQL database dump of energyLedger
 -- Version 0.1
 --
