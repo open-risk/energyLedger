@@ -3,9 +3,11 @@
 The **energyLegder** project is an SQL implementation that demonstrates schema designs for *Integrated Energy Accounting*. 
 
 
-### What is Integrated Energy Accounting
+### What is Integrated Energy Accounting?
 
-**Integrated Energy Accounting** (IEA) is a multidimensional generalization (superset) of traditional double-entry bookkeeping that is interesting in the context of **Sustainability Reporting**. The simplest summary is that IEA keeps consistently and simultaneously track of both monetary *and* energy flows for all economic transactions of an accounting entity.   
+**Integrated Energy Accounting** (IEA) is a multidimensional generalization (superset) of traditional double-entry bookkeeping that is interesting in the context of **Sustainability Reporting**. 
+
+The simplest summary is that IEA keeps consistent and simultaneous track of both monetary *and* energy flows for all economic transactions between accounting entities.   
 
 The conceptual framework for IEA has been discussed in two Open Risk White Papers:
 
@@ -17,7 +19,7 @@ The conceptual framework for IEA has been discussed in two Open Risk White Paper
 
 ### Implementation 
 
-The implementation included in this repository is built using the **Postgres database** (Version 15). 
+The implementation included in this repository is built using the **Postgres Database** (Version 15). 
 
 The [file energyLedger0.1.sql](energyLedger0.1.sql) is a complete dump of a functional energyLedger database schema.
 
@@ -27,10 +29,13 @@ You should be able to load it into an existing postgres installation using somet
    psql -U username -d dbname < energyLedger0.1.sql
 ```
 
-This command will automatically
-* create the required tables
-* install the required triggers and 
+This command will automatically:
+
+* create the required database tables
+* install the required database triggers and 
 * insert a demo set of transactions (see the above White Paper for context and further explanations).
+
+Alternatively, if you are familiar with Docker you can use the provided Dockerfile
 
 ### Schema Structure
 
@@ -60,12 +65,13 @@ A Transaction record does not indicate either amounts or, indeed which accounts 
 
 The **Transactions Leg Table** contains the actual transaction data (the numbers of double entry bookkeeping). 
 
-Each transaction leg references 
+Each transaction leg references:
+
 * the Transaction it is part of
 * the Account it is affecting and 
-* the values to be added or subtracted from accounts 
+* the Values to be added or subtracted from accounts 
 
-The values are multidimensional, they capture consistently all the measured dimensions (monetary, different forms of energy etc.). 
+The values are multidimensional (they form an array or vector). They capture consistently all the measured dimensions (monetary, different forms of energy etc.). 
 
 The mechanism of adding columns to the transaction leg table means that a large number of different concurrently measured qualities of an account can be accommodated. 
 
@@ -89,7 +95,6 @@ A transaction can have any number of legs associated with it. The transaction le
 ### Warning
 
 The energyLedger schema does not provide a fully functioning integrated accounting system. It is simply a demonstration of the main conceptual generalizations and constraints that must be implemented to extend conventional (monetary) accounting in the direction of consistent low-level accounting of physical and embodied energy along financial considerations.
-
 
 ## Feedback
 
