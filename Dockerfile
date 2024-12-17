@@ -3,7 +3,7 @@
 FROM postgres:17-bookworm
 
 LABEL description="energyLedger"
-LABEL maintainer="info@openrisk.eu"
+LABEL maintainer="info@openriskmanagement.com"
 LABEL version="0.2"
 LABEL author="Open Risk <www.openriskmanagement.com>"
 
