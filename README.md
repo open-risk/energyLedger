@@ -100,5 +100,7 @@ The energyLedger schema does not provide a fully functioning integrated accounti
 
 We welcome feedback through any meaningful channel
 * here (via issues)
-* at the [Open Risk Commons](https://www.openriskcommons.org/c/equinox/energyledger/33) 
-* or our [reddit sub](https://www.reddit.com/r/open_risk/).
+* at the [Open Risk Commons](https://www.openriskcommons.org/c/equinox/energyledger/33)
+* the [fediverse](https://mastodon.social/deck/@openrisk)
+* on [bluesky](https://bsky.app/profile/openrisk.eu)
+* or the [reddit sub](https://www.reddit.com/r/open_risk/).
