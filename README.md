@@ -7,9 +7,9 @@ The **energyLegder** project is an SQL implementation that demonstrates schema d
 
 **Integrated Energy Accounting** (IEA) is a multidimensional generalization (superset) of traditional double-entry bookkeeping that is interesting in the context of **Sustainability Reporting**. 
 
-The simplest summary is that IEA keeps consistent and simultaneous track of both monetary *and* energy flows for all economic transactions between accounting entities.   
+The simplest summary of the concept is that through integrated energy accounting we can keep consistent and simultaneous track of both monetary *and* energy flows for all economic transactions between accounting entities.   
 
-The conceptual framework for IEA has been discussed in two Open Risk White Papers:
+The conceptual framework for Integrated Energy Accounting has been discussed in two Open Risk White Papers:
 
 * [Deep-Linking Financial and Energy Accounting](https://www.openriskmanagement.com/white_paper_deep_linking_financial_and_energy_accounting/). This paper is a more conceptual and mathematical approach.
 * [Integrated Energy Accounting in Relational Databases](https://www.openriskmanagement.com/white_paper_integrated_energy_accounting_using_relational_databases/). This paper is more concrete, implementation oriented discussion that offers some worked out examples.
@@ -19,7 +19,7 @@ The conceptual framework for IEA has been discussed in two Open Risk White Paper
 
 ### Implementation 
 
-The implementation included in this repository is built using the **Postgres Database** (Version 15). 
+The implementation included in this repository is built using the **Postgres Database** (Version 15 and later). 
 
 The [file energyLedger0.1.sql](energyLedger0.1.sql) is a complete dump of a functional energyLedger database schema.
 
@@ -31,13 +31,13 @@ You should be able to load it into an existing postgres installation using somet
 
 This command will automatically:
 
-* create the required database tables
-* install the required database triggers and 
-* insert a demo set of transactions (see the above White Paper for context and further explanations).
+* Create the required database tables
+* Install the required database triggers and 
+* Insert a demo set of transactions (see the above White Paper for context and further explanations).
 
-Alternatively, if you are familiar with Docker you can use the provided Dockerfile
+Alternatively, if you are familiar with Docker you can use the provided [Dockerfile](Dockerfile).
 
-### Schema Structure
+### IEA Schema Structure
 
 The simplified and stylized schema of energyLedger has three tables as per the below diagram. These are further discussed below.
 
@@ -71,11 +71,11 @@ Each transaction leg references:
 * the Account it is affecting and 
 * the Values to be added or subtracted from accounts 
 
-The values are multidimensional (they form an array or vector). They capture consistently all the measured dimensions (monetary, different forms of energy etc.). 
+The transaction leg values are _multidimensional_ (they form an array or vector). They capture consistently all the measured dimensions of the transaction (the monetary aspect, different forms of energy being tracked etc.). 
 
 The mechanism of adding columns to the transaction leg table means that a large number of different concurrently measured qualities of an account can be accommodated. 
 
-The accounting logic is implemented through the following construct: The Transaction Leg entries associated with a Transaction entry must be successfully completed (or otherwise none can be completed). This is the primary means to implement **double entry balance constraints and thermodynamical law constraints**.
+The accounting logic is implemented through the following construct: The Transaction Leg entries associated with a Transaction entry must be successfully completed (or otherwise none can be completed). This is the primary means to implement both the **double entry balance constraints and thermodynamical law constraints**.
 
 ## Database Triggers
 
@@ -88,18 +88,19 @@ There are three non-trivial triggers implemented:
 
 ## Transaction Data Insertion
 
-Data insertion into an operational system will consist of inserting transactions and their associated transaction legs. 
+Data insertion into an operational system would consist of inserting transactions and their associated transaction legs. 
 
 A transaction can have any number of legs associated with it. The transaction legs will have numerical values for the types of measurements (money, energy) that are non-zero. The complete SQL code has a longer list of transaction examples. 
 
 ### Warning
 
-The energyLedger schema does not provide a fully functioning integrated accounting system. It is simply a demonstration of the main conceptual generalizations and constraints that must be implemented to extend conventional (monetary) accounting in the direction of consistent low-level accounting of physical and embodied energy along financial considerations.
+The energyLedger schema does not provide a fully functioning integrated accounting system. It is a demonstration of the main conceptual generalizations and constraints that must be implemented to extend conventional (monetary) accounting in the direction of consistent low-level accounting of physical and embodied energy along financial considerations.
 
 ## Feedback
 
 We welcome feedback through any meaningful channel
-* here (via issues)
+
+* here on GitHub (via issues)
 * at the [Open Risk Commons](https://www.openriskcommons.org/c/equinox/energyledger/33)
 * the [fediverse](https://mastodon.social/deck/@openrisk)
 * on [bluesky](https://bsky.app/profile/openrisk.eu)
