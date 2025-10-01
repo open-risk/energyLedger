@@ -1,3 +1,5 @@
+# Copyright (c) 2023 - 2025 Open Risk (https://www.openriskmanagement.com)
+
 # This dockerfile sets up a energyLedge backend database running inside a Docker container
 
 FROM postgres:17-bookworm
