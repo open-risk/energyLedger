@@ -2,7 +2,6 @@
 
 The **energyLegder** project is an SQL implementation that demonstrates schema designs for *Integrated Energy Accounting*. 
 
-
 ### What is Integrated Energy Accounting?
 
 **Integrated Energy Accounting** (IEA) is a multidimensional generalization (superset) of traditional double-entry bookkeeping that is interesting in the context of **Sustainability Reporting**. 
@@ -16,7 +15,6 @@ The conceptual framework for Integrated Energy Accounting has been discussed in 
 
 ![Overview](./energyLedger.png)
 
-
 ### Implementation 
 
 The implementation included in this repository is built using the **Postgres Database** (Version 15 and later). 
@@ -28,7 +26,6 @@ You should be able to load it into an existing postgres installation using somet
 ```bash
    psql -U username -d dbname < energyLedger0.1.sql
 ```
-
 This command will automatically:
 
 * Create the required database tables
